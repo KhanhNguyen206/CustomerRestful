@@ -1,5 +1,7 @@
 package com.codegym.cms;
 
+import com.codegym.cms.service.CustomerService;
+import com.codegym.cms.service.impl.CustomerServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -35,6 +37,11 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
+    }
+
+    @Bean
+    public CustomerService customerService(){
+        return new CustomerServiceImpl();
     }
 
     //JPA configuration
